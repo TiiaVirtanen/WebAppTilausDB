@@ -1,0 +1,81 @@
+﻿@model WebAppTilausDB.Models.Henkilot
+
+@{
+    ViewBag.Title = "TilausDB - Poista";
+}
+
+<h2>Poista</h2>
+
+<h3>Oletko varma että haluat poistaa tämän?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Henkilo_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Henkilo_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Etunimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Etunimi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sukunimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sukunimi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Osoite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Osoite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Esimies)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Esimies)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Postinumero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Postinumero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sahkoposti)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sahkoposti)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <br />
+            <input type="submit" value="Poista" class="btn btn-outline-danger" /> 
+            <br />
+            @Html.ActionLink("Takaisin", "Index")
+        </div>
+    }
+</div>

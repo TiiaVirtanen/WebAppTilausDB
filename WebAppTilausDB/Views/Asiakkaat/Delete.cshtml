@@ -1,0 +1,57 @@
+﻿@model WebAppTilausDB.Models.Asiakkaat
+
+@{
+    ViewBag.Title = "TilausDB - Poista";
+}
+
+<h2>Poista</h2>
+
+<h3>Oletko varma että haluat poistaa tämän?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AsiakasID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AsiakasID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nimi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Osoite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Osoite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Postinumero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Postinumero)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <br />
+            <input type="submit" value="Poista" class="btn btn-outline-danger" /> 
+            <br />
+            @Html.ActionLink("Takaisin", "Index")
+        </div>
+    }
+</div>
