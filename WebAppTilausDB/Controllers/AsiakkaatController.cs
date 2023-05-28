@@ -31,8 +31,6 @@ namespace WebAppTilausDB.Controllers
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             Asiakkaat asiakkaat = db.Asiakkaat.Find(id);
             if (asiakkaat == null) return HttpNotFound();
-            ViewBag.AsiakasID = new SelectList(db.Tilaukset, "AsiakasID", "AsiakasID", asiakkaat.AsiakasID);
-
             ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postinumero", asiakkaat.Postinumero);
             return View(asiakkaat);
         }
@@ -48,13 +46,13 @@ namespace WebAppTilausDB.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AsiakasID = new SelectList(db.Tilaukset, "AsiakasID", "AsiakasID", asiakkaat.AsiakasID);
             ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postinumero", asiakkaat.Postinumero);
             return View(asiakkaat);
         }
 
         public ActionResult Create()
         {
+            ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postinumero");
             return View();
         }
 
@@ -69,6 +67,7 @@ namespace WebAppTilausDB.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postinumero", asiakkaat.Postinumero);
             return View(asiakkaat);
         }
 

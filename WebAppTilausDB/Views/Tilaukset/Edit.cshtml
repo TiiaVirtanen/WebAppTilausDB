@@ -10,7 +10,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Tilaukset</h4>
         <hr />
@@ -50,7 +50,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Tilauspvm, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Tilauspvm, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Tilauspvm, new { htmlAttributes = new { @class = "datepicker" } })
                 @Html.ValidationMessageFor(model => model.Tilauspvm, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -58,7 +58,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Toimituspvm, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Toimituspvm, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Toimituspvm, new { htmlAttributes = new { @class = "datepicker" } })
                 @Html.ValidationMessageFor(model => model.Toimituspvm, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -77,6 +77,18 @@
     @Html.ActionLink("Takaisin", "Index")
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet"
+      @section Scripts {
+
+
+<script src="~/Scripts/jquery-ui-1.13.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".datepicker").datepicker({
+            dateFormat: "dd-mm-yy",
+            changemonth: true,
+            changeyear: true
+        });
+    });
+</script>
 }

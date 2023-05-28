@@ -32,6 +32,7 @@
         </div>
 
         <div class="form-group">
+            @{ Html.EnableClientValidation(false); }
             @Html.LabelFor(model => model.Ahinta, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Ahinta, new { htmlAttributes = new { @class = "form-control" } })
@@ -40,7 +41,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Kuvalinkki, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Kuvalinkki, htmlAttributes: new { type = "decimal", @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Kuvalinkki, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Kuvalinkki, "", new { @class = "text-danger" })

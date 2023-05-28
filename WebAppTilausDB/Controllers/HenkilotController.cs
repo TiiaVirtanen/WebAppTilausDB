@@ -31,6 +31,7 @@ namespace WebAppTilausDB.Controllers
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             Henkilot henkilot = db.Henkilot.Find(id);
             if (henkilot == null) return HttpNotFound();
+            ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postinumero", henkilot.Postinumero);
             return View(henkilot);
         }
 
@@ -44,6 +45,7 @@ namespace WebAppTilausDB.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postinumero", henkilot.Postinumero);
             return View(henkilot);
         }
 
@@ -63,6 +65,7 @@ namespace WebAppTilausDB.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postinumero");
             return View();
         }
 
@@ -76,6 +79,7 @@ namespace WebAppTilausDB.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postinumero");
             return View(henkilot);
         }
 
